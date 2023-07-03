@@ -48,4 +48,11 @@ class BookDaoTestCase {
     void testSelectByPage() {
         System.out.println(bookDao.selectByPage(10, 5));
     }
+
+    @Test
+    void testSelectByPageAndCondition() {
+        Book book = new Book();
+        book.setName("%Spring%");
+        System.out.println(bookDao.selectByPageAndCondition(1,5,book));
+    }
 }

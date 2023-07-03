@@ -52,4 +52,12 @@ public interface BookDao {
     @Select("select  * from tbl_book limit #{begin} , #{size}")
     List<Book> selectByPage(@Param("begin") int begin,@Param("size") int size);
 
+    /**
+     * 條件分頁查詢
+     * @param begin
+     * @param size
+     * @param book
+     * @return
+     */
+    List<Book> selectByPageAndCondition(@Param("begin") int begin, @Param("size") int size, @Param("book") Book book);
 }

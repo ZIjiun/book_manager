@@ -22,4 +22,26 @@
         where id = #{id}
     </update>
 
+    <!--條件分頁查詢-->
+    <select id="selectByPageAndCondition" resultMap="bookResultMap">
+        select *
+        from tbl_book
+        <where>
+            <if test="book.type != null and book.type != '' ">
+                and  type like #{book.type}
+            </if>
+
+            <if test="book.name != null and book.name != '' ">
+                and name like #{book.name}
+            </if>
+
+            <if test="book.description != null and book.description != ''">
+                and description like #{book.description}
+            </if>
+
+        </where>
+
+        limit #{begin} , #{size}
+    </select>
+
 </mapper>
