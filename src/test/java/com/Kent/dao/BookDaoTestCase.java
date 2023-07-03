@@ -43,4 +43,9 @@ class BookDaoTestCase {
     void testGetAll() {
         System.out.println(bookDao.selectAll());
     }
+
+    @Test
+    void selectByPage() {
+        System.out.println(bookDao.selectByPage(10, 5));
+    }
 }

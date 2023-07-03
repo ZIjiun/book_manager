@@ -1,10 +1,7 @@
 package com.Kent.dao;
 
 import com.Kent.domain.Book;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -45,4 +42,14 @@ public interface BookDao {
      */
     @Select("select * from tbl_book")
     List<Book> selectAll();
+
+    /**
+     * 分頁查詢
+     * @param begin
+     * @param size
+     * @return
+     */
+    @Select("select  * from tbl_book limit #{begin} , #{size}")
+    List<Book> selectByPage(@Param("begin") int begin,@Param("size") int size);
+
 }
