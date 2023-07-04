@@ -12,7 +12,7 @@ class BookDaoTestCase {
 
     @Test
     void testGetById() {
-        System.out.println(bookDao.getById(2));
+        System.out.println(bookDao.selectById(2));
     }
 
     @Test
@@ -21,7 +21,7 @@ class BookDaoTestCase {
         book.setType("test1");
         book.setName("test2");
         book.setDescription("test3");
-        bookDao.add(book);
+        System.out.println(bookDao.add(book));
     }
 
     @Test

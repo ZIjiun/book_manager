@@ -14,27 +14,27 @@ public interface BookDao {
      * @return
      */
     @Select("select * from tbl_book where id = #{id}")
-    Book getById(Integer id);
+    Book selectById(Integer id);
 
     /**
      * 新增
      * @param book
      */
     @Insert("insert into tbl_book (type, name, description) values (#{type}, #{name}, #{description});")
-    void add(Book book);
+    int add(Book book);
 
     /**
      * 修改
      * @param book
      */
-    void update(Book book);
+    int update(Book book);
 
     /**
      * 刪除
      * @param id
      */
     @Delete("delete from tbl_book where id = #{id};")
-    void delete(int id);
+    int delete(int id);
 
     /**
      * 查詢全部
