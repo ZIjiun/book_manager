@@ -19,7 +19,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Boolean update(Book book) {
-        return bookDao.add(book) > 0;
+        return bookDao.update(book) > 0;
     }
 
     @Override
