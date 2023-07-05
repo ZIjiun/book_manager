@@ -1,11 +1,11 @@
 package com.Kent.controller;
 
 import com.Kent.Service.BookService;
+import com.Kent.controller.utils.R;
 import com.Kent.domain.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/books")
@@ -18,8 +18,8 @@ public class BookController {
      * @return
      */
     @GetMapping
-    public List<Book> getAll() {
-        return bookService.getAll();
+    public R getAll() {
+        return new R(true, bookService.getAll());
     }
 
     /**
@@ -28,8 +28,8 @@ public class BookController {
      * @return
      */
     @PostMapping
-    public Boolean save(@RequestBody Book book) {
-        return bookService.save(book);
+    public R save(@RequestBody Book book) {
+        return new R(bookService.save(book));
     }
 
     /**
@@ -38,8 +38,8 @@ public class BookController {
      * @return
      */
     @PutMapping
-    public Boolean update(@RequestBody Book book) {
-        return bookService.update(book);
+    public R update(@RequestBody Book book) {
+        return new R(bookService.update(book));
     }
 
     /**
@@ -48,9 +48,8 @@ public class BookController {
      * @return
      */
     @DeleteMapping("{id}")
-    public Boolean delete(@PathVariable Integer id) {
-        return bookService.delete(id);
-    }
+    public R delete(@PathVariable Integer id) {
+        return new R(bookService.delete(id));    }
 
     /**
      * 根據 id 查詢
@@ -58,8 +57,8 @@ public class BookController {
      * @return
      */
     @GetMapping("{id}")
-    public Book getById(@PathVariable Integer id) {
-        return bookService.getById(id);
+    public R getById(@PathVariable Integer id) {
+        return new R(true, bookService.getById(id));
     }
 
     /**
@@ -69,7 +68,7 @@ public class BookController {
      * @return
      */
     @GetMapping("{begin}/{size}")
-    public List<Book> getByPage(@PathVariable int begin, @PathVariable int size){
-        return bookService.getPage(begin, size);
+    public R getByPage(@PathVariable int begin, @PathVariable int size){
+        return new R(true, bookService.getPage(begin, size));
     }
 }
