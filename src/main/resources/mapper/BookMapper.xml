@@ -44,4 +44,22 @@
         limit #{begin} , #{size}
     </select>
 
+    <select id="selectTotalCountByCondition" resultType="java.lang.Integer">
+        select count(*)
+        from tbl_book
+        <where>
+            <if test="type != null and type != '' ">
+                and  type like #{type}
+            </if>
+
+            <if test="name != null and name != '' ">
+                and name like #{name}
+            </if>
+
+            <if test="description != null and description != ''">
+                and description like #{description}
+            </if>
+        </where>
+    </select>
+
 </mapper>

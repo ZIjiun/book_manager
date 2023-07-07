@@ -55,4 +55,11 @@ class BookDaoTestCase {
         book.setName("%Spring%");
         System.out.println(bookDao.selectByPageAndCondition(1,5,book));
     }
+
+    @Test
+    void testSelectTotalCountByCondition() {
+        Book book = new Book();
+        book.setType("4");
+        System.out.println(bookDao.selectTotalCountByCondition(book));
+    }
 }

@@ -60,4 +60,10 @@ public interface BookDao {
      * @return
      */
     List<Book> selectByPageAndCondition(@Param("begin") int begin, @Param("size") int size, @Param("book") Book book);
+
+    /**
+     * 根據條件查詢總紀錄數
+     * @return
+     */
+    int selectTotalCountByCondition(Book book);
 }
