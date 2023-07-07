@@ -50,4 +50,9 @@ public class BookServiceTestCase {
         System.out.println(bookService.getPage(1, 5));
     }
 
+    @Test
+    void testGetByPageAndCondition() {
+        Book book = new Book();
+        System.out.println(bookService.getByPageAndCondition(1, 5, book));
+    }
 }

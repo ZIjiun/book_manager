@@ -1,6 +1,7 @@
 package com.Kent.Service;
 
 import com.Kent.domain.Book;
+import com.Kent.domain.PageBean;
 
 import java.util.List;
 
@@ -47,4 +48,13 @@ public interface BookService {
      * @return
      */
     List<Book> getPage(Integer begin, Integer size);
+
+    /**
+     * 條件分頁查詢
+     * @param currentPage
+     * @param pageSize
+     * @param Book
+     * @return
+     */
+    PageBean<Book> getByPageAndCondition(int currentPage, int pageSize, Book Book);
 }
