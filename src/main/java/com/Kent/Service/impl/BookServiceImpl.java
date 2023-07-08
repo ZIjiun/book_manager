@@ -48,9 +48,15 @@ public class BookServiceImpl implements BookService {
         int begin = (currentPage - 1) * pageSize;
         int size = pageSize;
 
-        List<Book> rows = bookDao.selectByPageAndCondition(begin, size, book);
+        // 如果傳過來的分頁參數，begin + 1 的值大於資料總數，就直接將查詢頁數調成第一頁
         int totalCount = bookDao.selectTotalCountByCondition(book);
 
+        if (begin + 1 > totalCount ) {
+            currentPage = 1;
+            begin = (currentPage - 1) * pageSize;
+        }
+
+        List<Book> rows = bookDao.selectByPageAndCondition(begin, size, book);
         PageBean<Book> pageBean = new PageBean<>();
 
         pageBean.setRows(rows);
