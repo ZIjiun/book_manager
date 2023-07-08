@@ -64,14 +64,26 @@ public class BookController {
         return new R(true, bookService.getById(id));
     }
 
+//    /**
+//     * 分頁查詢
+//     * @param begin
+//     * @param size
+//     * @return
+//     */
+//    @GetMapping("{begin}/{size}")
+//    public R getByPage(@PathVariable int begin, @PathVariable int size){
+//        return new R(true, bookService.getPage(begin, size));
+//    }
+
     /**
-     * 分頁查詢
-     * @param begin
-     * @param size
+     * 分頁條件查詢
+     * @param currentPage
+     * @param pageSize
+     * @param book
      * @return
      */
-    @GetMapping("{begin}/{size}")
-    public R getByPage(@PathVariable int begin, @PathVariable int size){
-        return new R(true, bookService.getPage(begin, size));
+    @GetMapping("{currentPage}/{pageSize}")
+    public R getByPageAndCondition(@PathVariable int currentPage,@PathVariable int pageSize,Book book) {
+        return new R (true, bookService.getByPageAndCondition(currentPage, pageSize, book));
     }
 }
