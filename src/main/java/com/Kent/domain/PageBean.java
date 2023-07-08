@@ -2,6 +2,10 @@ package com.Kent.domain;
 
 import java.util.List;
 
+/**
+ * 分頁訊息封裝類
+ * @param <T>
+ */
 public class PageBean<T> {
     // 總紀錄數
     private int totalCount;
