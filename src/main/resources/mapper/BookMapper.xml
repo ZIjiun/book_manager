@@ -28,15 +28,15 @@
         from tbl_book
         <where>
             <if test="book.type != null and book.type != '' ">
-                and  type like #{book.type}
+                and  type like CONCAT("%",#{book.type},"%")
             </if>
 
             <if test="book.name != null and book.name != '' ">
-                and name like #{book.name}
+                and name like CONCAT("%",#{book.name},"%")
             </if>
 
             <if test="book.description != null and book.description != ''">
-                and description like #{book.description}
+                and description like CONCAT("%",#{book.description},"%")
             </if>
 
         </where>
@@ -49,15 +49,15 @@
         from tbl_book
         <where>
             <if test="type != null and type != '' ">
-                and  type like #{type}
+                and  type like CONCAT("%",#{type},"%")
             </if>
 
             <if test="name != null and name != '' ">
-                and name like #{name}
+                and name like CONCAT("%",#{name},"%")
             </if>
 
             <if test="description != null and description != ''">
-                and description like #{description}
+                and description like CONCAT("%",#{description},"%")
             </if>
         </where>
     </select>
